@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Jorituel · Founder Brief · nuhai</title>
+<meta name="description" content="Founder brief for Jorituel. Private intake prepared by nuhai.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a0a0c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0a0c'/%3E%3Ccircle cx='12' cy='16' r='5' fill='%235bdee3'/%3E%3Ccircle cx='22' cy='16' r='5' fill='%23888884'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0c; --bg-2:#111114; --bg-3:#16161a;
+  --text:#fafaf8; --text-2:#d0cfc8; --muted:#888884;
+  --teal:#5bdee3; --teal-2:#4bc8cd; --teal-dim:rgba(91,222,227,.12);
+  --line:rgba(250,250,248,.10); --line-2:rgba(250,250,248,.18);
+  --warn:#f0917f;
+  --glow:0 0 30px rgba(91,222,227,.10);
+  --sans:'Geist',system-ui,-apple-system,sans-serif;
+  --mono:'Geist Mono',ui-monospace,SFMono-Regular,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{color-scheme:dark;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.55;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;background:radial-gradient(60% 40% at 50% -10%,rgba(91,222,227,.09),transparent 70%);z-index:0}
+img{display:block;max-width:100%}
+a{color:var(--teal);text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.mono{font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+
+/* header */
+.top{position:sticky;top:0;z-index:10;background:rgba(10,10,12,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.top-in{max-width:760px;margin:0 auto;padding:14px 20px 12px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.top .logo{height:18px;width:auto;opacity:.95}
+.top .crumb{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:right;white-space:nowrap}
+.top .crumb b{color:var(--text-2);font-weight:500}
+@media (max-width:480px){.top .crumb .sn{display:none}}
+.bar{height:2px;background:rgba(250,250,248,.06)}
+.bar i{display:block;height:100%;width:0;background:var(--teal);box-shadow:0 0 14px rgba(91,222,227,.5);transition:width .45s cubic-bezier(.2,.8,.2,1)}
+
+/* layout */
+.wrap{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:40px 20px 80px}
+.screen{display:none;animation:fade .35s ease both}
+.screen.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.screen{animation:none}.bar i{transition:none}}
+
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:'';width:18px;height:1px;background:var(--teal);opacity:.7}
+h1{font-weight:300;font-size:clamp(32px,6vw,46px);line-height:1.08;letter-spacing:-.025em;margin-bottom:18px}
+h1 em{font-style:normal;color:var(--teal);text-shadow:0 0 18px rgba(91,222,227,.35)}
+h2{font-weight:400;font-size:clamp(26px,4.5vw,34px);line-height:1.12;letter-spacing:-.02em;margin-bottom:10px}
+.lead{color:var(--text-2);font-size:17px;line-height:1.6;max-width:600px}
+.lead+.lead{margin-top:12px}
+.intro-note{color:var(--muted);font-size:15px;max-width:600px;margin-top:10px;line-height:1.6}
+.sec-intro{color:var(--muted);font-size:15px;margin-bottom:34px;max-width:600px;border-left:2px solid var(--teal);padding-left:14px}
+
+/* questions */
+.q{margin-bottom:40px;scroll-margin-top:110px}
+.q .lab{display:block;font-weight:500;font-size:17px;line-height:1.4;color:var(--text);margin-bottom:6px}
+.q .lab .req{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-left:10px;vertical-align:middle;font-weight:500}
+.q .why{color:var(--muted);font-size:14px;line-height:1.55;margin-bottom:12px;max-width:600px}
+.q .hint{color:var(--muted);font-size:12.5px;margin-top:8px;font-family:var(--mono);letter-spacing:.02em}
+.q .err{display:none;color:var(--warn);font-size:13.5px;margin-top:8px}
+.q.missing .err{display:block}
+.q.missing input,.q.missing textarea,.q.missing .pills{outline:1px solid rgba(240,145,127,.55);outline-offset:2px;border-radius:12px}
+
+input[type=text],input[type=email],input[type=tel],textarea{
+  width:100%;background:var(--bg-2);border:1px solid var(--line-2);border-radius:12px;color:var(--text);
+  padding:14px 16px;font:inherit;font-size:16px;line-height:1.5;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+input::placeholder,textarea::placeholder{color:rgba(136,136,132,.75)}
+input:focus,textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(91,222,227,.14),var(--glow)}
+textarea{min-height:112px;resize:vertical}
+.other{margin-top:10px}
+.other input{padding:12px 14px;font-size:15px}
+
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1px solid var(--line-2);border-radius:999px;padding:10px 16px;min-height:44px;font-size:15px;line-height:1.3;color:var(--text-2);background:var(--bg-2);text-align:left;transition:border-color .15s,background .15s,color .15s,transform .1s}
+.pill:hover{border-color:rgba(250,250,248,.32);color:var(--text)}
+.pill:active{transform:scale(.985)}
+.pill.on{border-color:var(--teal);background:var(--teal-dim);color:var(--text);box-shadow:var(--glow)}
+.pill.off{opacity:.38;pointer-events:none}
+.pill:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+
+/* nav */
+.nav{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:48px;padding-top:26px;border-top:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:14px 26px;font-weight:500;font-size:15px;min-height:48px;transition:transform .12s,box-shadow .2s,background .2s,color .2s}
+.btn:active{transform:scale(.98)}
+.btn.primary{background:var(--teal);color:#06181a;box-shadow:0 0 24px rgba(91,222,227,.22)}
+.btn.primary:hover{background:#7ce6ea}
+.btn.primary:disabled{opacity:.5;cursor:default;box-shadow:none}
+.btn.ghost{color:var(--text-2);border:1px solid var(--line-2)}
+.btn.ghost:hover{color:var(--text);border-color:rgba(250,250,248,.34)}
+.btn.link{color:var(--muted);padding:10px 4px;min-height:0}
+.btn.link:hover{color:var(--text)}
+.saved{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:18px;text-align:right;min-height:16px}
+.saved b{color:var(--teal);font-weight:500}
+
+/* welcome */
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:34px 0 30px}
+.fact{border:1px solid var(--line);border-radius:14px;padding:16px 16px 14px;background:rgba(255,255,255,.02)}
+.fact .n{font-family:var(--mono);font-size:22px;color:var(--teal);letter-spacing:-.01em;text-shadow:0 0 14px rgba(91,222,227,.3)}
+.fact .t{color:var(--muted);font-size:13px;margin-top:4px;line-height:1.4}
+@media (max-width:560px){.facts{grid-template-columns:1fr 1fr}}
+.toc{list-style:none;margin:6px 0 34px;border-top:1px solid var(--line)}
+.toc li{display:flex;gap:16px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line);color:var(--text-2);font-size:15px}
+.toc li i{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--muted);min-width:22px;letter-spacing:.06em}
+.banner{border:1px solid rgba(240,145,127,.45);background:rgba(240,145,127,.08);color:#f7b7aa;border-radius:12px;padding:12px 14px;font-size:14px;margin-bottom:26px;display:none}
+.banner.on{display:block}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:var(--bg-3);border:1px solid var(--line-2);color:var(--text-2);padding:11px 16px;border-radius:999px;font-size:14px;opacity:0;transition:opacity .3s,transform .3s;z-index:20;box-shadow:var(--glow);white-space:nowrap}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* review */
+.rev{border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin-bottom:14px;background:rgba(255,255,255,.015)}
+.rev-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:12px}
+.rev-h h3{font-weight:500;font-size:17px;letter-spacing:-.01em}
+.rev-h .n{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-right:10px}
+.rev dl{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+.rev dt{color:var(--muted);font-size:13px;line-height:1.4}
+.rev dd{color:var(--text);font-size:15px;line-height:1.5;white-space:pre-wrap;word-break:break-word;margin-bottom:4px}
+.rev .empty{color:var(--muted);font-size:14px;font-style:italic}
+.consent{color:var(--muted);font-size:13.5px;line-height:1.6;max-width:600px;margin-top:26px}
+
+/* done */
+.done-mark{width:56px;height:56px;border-radius:50%;border:1px solid var(--teal);display:flex;align-items:center;justify-content:center;margin-bottom:26px;box-shadow:var(--glow)}
+.done-mark svg{width:24px;height:24px;stroke:var(--teal);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+footer{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 20px 40px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+footer .dots{display:inline-flex;gap:5px;margin-right:10px;vertical-align:middle}
+footer .dots i{width:6px;height:6px;border-radius:50%;background:var(--teal);display:block}
+footer .dots i+i{background:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="top-in">
+    <img class="logo" src="img/nuhai-logo.png" alt="nuhai">
+    <div class="crumb" id="crumb">Jorituel · <b>Founder Brief</b></div>
+  </div>
+  <div class="bar"><i id="bar"></i></div>
+</div>
+
+<main class="wrap">
+
+  <!-- welcome -->
+  <section class="screen on" id="s-welcome">
+    <div class="banner" id="notConnected">This form is not connected yet. Answers will not be delivered until the endpoint is set.</div>
+    <div class="eyebrow">Founder Brief · Private</div>
+    <h1>Joanna, this is where<br><em>Jorituel</em> begins.</h1>
+    <p class="lead">Before we choose suppliers, design a box or file a single form, we want to understand what you see. This brief is that conversation, in writing.</p>
+    <p class="lead">Answer in your own words. If you do not know something yet, skip it. That is completely normal at this stage, and nothing here is a commitment.</p>
+    <div class="facts">
+      <div class="fact"><div class="n">~35</div><div class="t">minutes, give or take. Most questions are a tap.</div></div>
+      <div class="fact"><div class="n">auto</div><div class="t">saved on this device. Close the tab, come back later.</div></div>
+      <div class="fact"><div class="n">11</div><div class="t">short sections, from your story to your budget.</div></div>
+    </div>
+    <ul class="toc" id="toc"></ul>
+    <div class="nav" style="border-top:0;padding-top:0;margin-top:0">
+      <span class="intro-note">Best on a laptop, works fine on a phone.</span>
+      <button class="btn primary" id="startBtn">Start the brief</button>
+    </div>
+  </section>
+
+  <!-- sections are rendered here -->
+  <section class="screen" id="s-section">
+    <div class="eyebrow" id="secEyebrow"></div>
+    <h2 id="secTitle"></h2>
+    <p class="sec-intro" id="secIntro"></p>
+    <div id="qs"></div>
+    <div class="nav">
+      <button class="btn ghost" id="backBtn">Back</button>
+      <button class="btn primary" id="nextBtn">Continue</button>
+    </div>
+    <div class="saved" id="savedNote"></div>
+  </section>
+
+  <!-- review -->
+  <section class="screen" id="s-review">
+    <div class="eyebrow">Almost done</div>
+    <h2>Read it once, then send.</h2>
+    <p class="sec-intro">Anything you want to change, tap Edit. You can also come back and update your answers after sending.</p>
+    <div id="review"></div>
+    <p class="consent">By sending, you agree that nuhai keeps these answers to build Jorituel's plan with you. They stay between you and the nuhai team. Passport, Emirates ID and bank details are never collected here.</p>
+    <div class="nav">
+      <button class="btn ghost" id="reviewBack">Back</button>
+      <button class="btn primary" id="sendBtn">Send my brief</button>
+    </div>
+    <div class="saved" id="sendNote"></div>
+  </section>
+
+  <!-- done -->
+  <section class="screen" id="s-done">
+    <div class="done-mark"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+    <div class="eyebrow">Received</div>
+    <h2 id="doneTitle">Thank you, Joanna.</h2>
+    <p class="lead" id="doneLead">Your brief is with the nuhai team. We read every word, then we come back to you with the first plan and the questions it raises.</p>
+    <p class="intro-note" id="doneCopy"></p>
+    <div class="nav">
+      <button class="btn link" id="editBtn">Change something in my answers</button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span><span class="dots"><i></i><i></i></span>nuhai.net · Confidential</span>
+  <button class="btn link mono" id="resetBtn" style="font-size:11px;letter-spacing:.08em;text-transform:uppercase">Start over</button>
+</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+// ── CONFIG ──
+// Google Apps Script web-app /exec URL for the "Jorituel intake" sheet (see
+// nuhai/wiki/apps-scripts/jorituel-intake.gs). Leave '' until deployed: the page
+// shows a "not connected" banner and does not send anything.
+const ENDPOINT = '';
+const FORM_ID = 'jorituel-intake';
+const FORM_VERSION = 1;
+const STORE_KEY = 'jorituel_intake_v1';
+
+// ── QUESTIONS ──
+// type: text | email | tel | textarea | select (one) | multi (many). max: limit for multi.
+// other: true adds an "Other" text field saved as <key>_other. req: required.
+const SECTIONS = [
+  { id: 'about', title: 'About you', intro: 'The basics, plus the one answer that matters most: why this business.', questions: [
+    { key: 'full_name', type: 'text', req: true, label: 'Your full name, exactly as it appears on your passport', why: 'This is the name that goes on the trade licence and the trademark, so the spelling matters.', ph: 'Joanna ...' },
+    { key: 'preferred_name', type: 'text', label: 'What should we call you?', ph: 'Joanna' },
+    { key: 'email', type: 'email', req: true, label: 'Best email for this project', ph: 'joanna@jorituel.com' },
+    { key: 'phone', type: 'tel', req: true, label: 'WhatsApp number', ph: '+971 5x xxx xxxx' },
+    { key: 'nationality', type: 'text', req: true, label: 'Nationality', ph: 'e.g. Lebanese' },
+    { key: 'uae_status', type: 'select', req: true, label: 'Your current status in the UAE', why: 'It decides which company setups are open to you and whether you need a visa through the new company.', options: ['UAE resident, employment visa', 'UAE resident, family or spouse visa', 'UAE resident, own company or golden visa', 'GCC national', 'Visitor, not resident yet'], other: true },
+    { key: 'emirate', type: 'select', label: 'Where do you live?', options: ['Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Ras Al Khaimah', 'Fujairah', 'Umm Al Quwain', 'Outside the UAE'] },
+    { key: 'time_per_week', type: 'select', label: 'How much time can you give the business each week right now?', options: ['A few hours', '10 to 20 hours', '20 to 40 hours', 'This is my full-time focus'] },
+    { key: 'current_work', type: 'textarea', label: 'What do you do currently, and does it continue alongside the business?', why: 'Helps us plan around your availability, and around any employer rules on side businesses.', ph: 'e.g. I work in marketing at a bank, I will keep the job for the first year ...' },
+    { key: 'existing_companies', type: 'select', label: 'Do you already own a company or licence anywhere?', options: ['No', 'Yes, in the UAE', 'Yes, outside the UAE', 'Yes, both'] },
+    { key: 'existing_companies_details', type: 'textarea', label: 'If yes: what is it, where, and is it active?', ph: 'e.g. A small online shop licence in Beirut, not active since 2023 ...' },
+    { key: 'background', type: 'textarea', label: 'Your background: studies, jobs, skills, anything relevant', why: 'Design, chemistry, retail, beauty, hospitality, finance, sales. Everything counts, including hobbies.', ph: 'e.g. Interior design degree, five years in luxury retail, I make my own candles ...' },
+    { key: 'why_this', type: 'textarea', req: true, label: 'Why this business? Tell us the story.', why: 'The moment you thought of it, what bothered you, what excited you. The founder story becomes the brand story, so write freely. This is the most valuable answer in the whole brief.', ph: 'It started when ...' },
+  ]},
+  { id: 'vision', title: 'The vision', intro: 'Where this goes if everything works, and what you care about most on the way there.', questions: [
+    { key: 'business_in_own_words', type: 'textarea', req: true, label: 'Describe the business in your own words, as if to a friend', ph: 'Jorituel is ...' },
+    { key: 'three_year_picture', type: 'textarea', label: 'Three years from now, what does Jorituel look like if everything goes right?', why: 'Products, countries, revenue, team, how you spend your days. Dream properly, we will do the maths later.', ph: 'In three years ...' },
+    { key: 'success_definition', type: 'textarea', label: 'What is the one thing that must be true for you to call this a success?', ph: 'e.g. It pays me a salary I can live on. Or: it is in every good hotel in Dubai ...' },
+    { key: 'priorities', type: 'multi', max: 3, req: true, label: 'Pick the three that matter most to you', why: 'Everything cannot be first. This tells us where to spend money and where to save it.', options: ['Beautiful design', 'The scent experience', 'Health, skin and hair benefits', 'Luxury positioning', 'Affordable price', 'Sustainability', 'Designed in the UAE', 'Fast growth and scale'] },
+    { key: 'admired_brands', type: 'textarea', label: 'Brands you admire, from any industry, and why', ph: 'e.g. Aesop for its calm, Apple for its simplicity, Rhode for how it launched ...' },
+    { key: 'competitors_seen', type: 'multi', label: 'Have you already seen brands doing scented or filtered showers?', why: 'We will map the whole market ourselves. This tells us what shaped your idea.', options: ['Jolie', 'Hello Klean', 'Canopy', 'Aroma Sense', 'Vitamin C shower heads (Vitapure and similar)', 'Filters on Amazon.ae or Noon', 'Something in a hotel or spa', 'None yet'], other: true },
+    { key: 'what_makes_different', type: 'textarea', req: true, label: 'What will make Jorituel different from all of them?', ph: 'e.g. Nobody does it with a real fragrance, everyone looks clinical ...' },
+  ]},
+  { id: 'product', title: 'The product', intro: 'Phase 1: the scented shower filter, as you picture it today. Guesses are welcome.', questions: [
+    { key: 'product_description', type: 'textarea', req: true, label: 'Describe the Phase 1 product as you picture it', ph: 'e.g. A sleek inline filter between the wall and the hose, with a scent capsule you switch every month ...' },
+    { key: 'form_factor', type: 'select', label: 'Which form fits your picture best?', options: ['Inline filter, between the wall pipe and the shower hose', 'A complete shower head with the filter built in', 'Handheld shower head with filter', 'Not sure yet, advise me'], other: true },
+    { key: 'scent_mechanism', type: 'select', label: 'How should the scent work?', options: ['Scented vitamin C cartridge, the filter itself carries the scent', 'A separate aroma capsule you can swap', 'Essential oil pod or drops', 'Not sure, advise me'], other: true },
+    { key: 'scents_wanted', type: 'textarea', label: 'Which scents do you imagine?', ph: 'e.g. oud and amber, jasmine, eucalyptus and mint, rose, citrus, lavender ...' },
+    { key: 'scent_count_launch', type: 'select', label: 'How many scents at launch?', options: ['One signature scent', 'Two or three', 'Four to six', 'More than six', 'Not sure'] },
+    { key: 'custom_fragrance', type: 'select', label: 'Your own fragrance, or ready-made scents from a manufacturer?', why: 'A custom fragrance with a perfumer costs more and takes longer, and it is the stronger brand.', options: ['My own custom fragrance', 'Ready-made scents, chosen by me', 'Start ready-made, go custom later', 'Not sure'] },
+    { key: 'filter_goals', type: 'multi', label: 'What should the filter actually do?', options: ['Remove chlorine', 'Reduce hard water and limescale', 'Reduce heavy metals', 'Remove bad smell', 'Softer water for skin and hair', 'Not sure, advise me'] },
+    { key: 'refills', type: 'select', label: 'Refills and subscription', options: ['Yes, refill cartridges on a subscription', 'Refills sold one by one', 'No refills, one product only', 'Not sure'] },
+    { key: 'design_language', type: 'multi', max: 2, label: 'Design language, pick up to two', options: ['Minimal', 'Luxury', 'Spa and wellness', 'Playful', 'Clinical and scientific', 'Warm and natural'] },
+    { key: 'materials_colours', type: 'textarea', label: 'Materials and colours you picture', ph: 'e.g. matte white with gold details, brushed chrome, black, frosted glass ...' },
+    { key: 'samples_status', type: 'select', req: true, label: 'Where are you with samples and suppliers?', options: ['Nothing yet', 'I have looked at suppliers online (Alibaba and similar)', 'I have contacted suppliers', 'I have samples in hand', 'I have a supplier chosen'] },
+    { key: 'supplier_details', type: 'textarea', label: 'If you have suppliers or samples: who, where, prices, what you liked or did not', ph: 'e.g. Two Korean OEMs on Alibaba, samples at USD 12 each, the scent faded after a week ...' },
+    { key: 'target_retail_price', type: 'select', label: 'What price do you imagine a customer paying for the product?', why: 'There is no wrong answer. It tells us which segment you instinctively see.', options: ['Under AED 150', 'AED 150 to 300', 'AED 300 to 500', 'AED 500 to 800', 'Above AED 800', 'No idea, advise me'] },
+    { key: 'refill_price', type: 'select', label: 'And for a refill?', options: ['Under AED 50', 'AED 50 to 100', 'AED 100 to 150', 'Above AED 150', 'No idea'] },
+    { key: 'non_negotiables', type: 'textarea', label: 'What would you never compromise on?', ph: 'e.g. The scent has to be real perfume quality. It has to look good uncovered in the bathroom ...' },
+    { key: 'claims_wanted', type: 'textarea', label: 'Claims you would like to make on the box or in ads', why: 'For example "removes 99% of chlorine", "reduces hair fall", "dermatologically tested". Every claim needs proof before it goes on a box or an ad, so we plan the testing early.', ph: 'e.g. Removes chlorine, better hair in 30 days ...' },
+    { key: 'certifications_known', type: 'textarea', label: 'Any certifications or standards you already know about or want?', ph: 'e.g. NSF, Emirates Quality Mark, dermatologically tested, cruelty free ...' },
+  ]},
+  { id: 'phases', title: 'What comes next', intro: 'Headlines only. This keeps the brand flexible enough for the next products.', questions: [
+    { key: 'phase2_ideas', type: 'textarea', label: 'What comes after the shower filter?', ph: 'e.g. body wash in the same scents, a kitchen tap filter, candles, a hotel line ...' },
+    { key: 'phase_order', type: 'textarea', label: 'In what order, and roughly when?', ph: 'e.g. Body wash six months after launch, the hotel line in year two ...' },
+    { key: 'brand_scope', type: 'select', label: 'Should Jorituel be known for one thing, or become a wider brand?', options: ['One focused product line, the shower ritual', 'A wider bath and body brand', 'A home wellness brand: water, air, scent', 'Not sure'] },
+  ]},
+  { id: 'customer', title: 'Your customer', intro: 'The more real the person, the sharper everything we build for them.', questions: [
+    { key: 'customer_description', type: 'textarea', req: true, label: 'Describe your ideal customer as a real person', ph: 'e.g. Sara, 34, lives in a villa in Dubai, spends on skincare, her hair suffers from the water, she loves a hotel bathroom ...' },
+    { key: 'customer_gender', type: 'select', label: 'Mostly for', options: ['Mostly women', 'Mostly men', 'Both equally', 'Families and households'] },
+    { key: 'customer_age', type: 'multi', label: 'Age', options: ['18 to 24', '25 to 34', '35 to 44', '45 to 54', '55 and above'] },
+    { key: 'customer_home', type: 'select', label: 'Where do they live?', options: ['Villas', 'Apartments', 'Both'] },
+    { key: 'customer_profile', type: 'multi', label: 'Who are they?', options: ['Emiratis', 'Arab expats', 'Western expats', 'Asian expats', 'Everyone'] },
+    { key: 'customer_income', type: 'select', label: 'Spending power', options: ['Mass market', 'Middle', 'Premium', 'Luxury'] },
+    { key: 'problem_solved', type: 'multi', label: 'What does Jorituel solve for them?', options: ['Hair fall and dryness from hard water', 'Dry or irritated skin', 'The chlorine smell', 'A spa feeling at home', 'A beautiful object in the bathroom', 'A thoughtful gift'], other: true },
+    { key: 'where_they_shop', type: 'multi', label: 'Where do they usually shop for things like this?', options: ['Instagram and TikTok', 'Amazon.ae', 'Noon', 'Pharmacies', 'Malls and home stores', 'Salons and spas', 'Brand websites'] },
+    { key: 'not_customer', type: 'textarea', label: 'Who is NOT your customer?', why: 'Saying no to someone is how a brand gets a personality.', ph: 'e.g. Bargain hunters, people who only buy in hypermarkets ...' },
+    { key: 'gifting', type: 'select', label: 'Is gifting part of the idea?', options: ['Yes, a big part', 'A little', 'No', 'Not sure'] },
+  ]},
+  { id: 'market', title: 'Selling and markets', intro: 'Where the first sale happens, and when you would love it to happen.', questions: [
+    { key: 'first_channels', type: 'multi', req: true, label: 'Where do you want to sell first?', options: ['Own website', 'Instagram and TikTok shop', 'Amazon.ae', 'Noon', 'Pharmacies', 'Home and lifestyle stores', 'Salons, spas and gyms', 'Hotels', 'Real estate developers: handover gifts, show homes', 'Not sure, advise me'] },
+    { key: 'countries', type: 'multi', label: 'Countries', options: ['UAE first', 'Saudi Arabia', 'Rest of the GCC', 'Lebanon and the Levant', 'Europe and the UK', 'Not sure'] },
+    { key: 'launch_wish', type: 'select', label: 'When would you love to launch?', options: ['As soon as possible', 'Within 3 months', '3 to 6 months', '6 to 12 months', 'No rush, do it right'] },
+    { key: 'hard_dates', type: 'textarea', label: 'Any dates that matter? Events, seasons, personal', ph: 'e.g. Ramadan gifting, Eid, White Friday, a wedding season, a trade show, a baby due in May ...' },
+    { key: 'year_one_expectation', type: 'textarea', label: 'What would a good first year look like in numbers?', why: 'Units, revenue, stores, followers, anything. Gut feeling is fine.', ph: 'e.g. 2,000 units, AED 500k in sales, in 3 retail stores ...' },
+  ]},
+  { id: 'brand', title: 'The brand', intro: 'Jorituel is the name. Now the personality, the look and the feel of the box.', questions: [
+    { key: 'name_story', type: 'textarea', req: true, label: 'Jorituel: what is the story behind the name?', why: 'The meaning shapes how we tell it on the website and on the box.', ph: 'The name comes from ...' },
+    { key: 'name_pronunciation', type: 'text', label: 'How do you pronounce it?', ph: 'e.g. jo-ri-TWEL' },
+    { key: 'tagline_ideas', type: 'textarea', label: 'Any tagline or phrases you keep coming back to?', ph: 'e.g. Your daily ritual. Water, reimagined ...' },
+    { key: 'personality_words', type: 'text', req: true, label: 'Three words that describe the brand’s personality', ph: 'e.g. calm, sensual, precise' },
+    { key: 'tone', type: 'select', label: 'How should the brand speak?', options: ['Warm and personal', 'Calm and minimal', 'Luxurious and quiet', 'Playful and fresh', 'Expert and scientific'] },
+    { key: 'colours_love', type: 'text', label: 'Colours you love', ph: 'e.g. sand, deep green, off-white' },
+    { key: 'colours_hate', type: 'text', label: 'Colours you never want to see on it', ph: 'e.g. bright pink, neon anything' },
+    { key: 'packaging_feel', type: 'multi', max: 2, label: 'Opening the box should feel ... pick up to two', options: ['Like a gift', 'Minimal and eco', 'Clinical and clean', 'Luxurious and heavy', 'Fun and colourful'] },
+    { key: 'packaging_languages', type: 'select', label: 'Languages on the packaging', why: 'Some product categories in the UAE need Arabic on the label. We will confirm the rule for filters.', options: ['English only', 'English and Arabic', 'English, Arabic and French', 'Not sure'] },
+    { key: 'handles_wanted', type: 'text', label: 'Social handles you would like. We check availability.', ph: '@jorituel' },
+    { key: 'existing_assets', type: 'textarea', label: 'Anything already created? Logo drafts, sketches, photos, a mood board', ph: 'e.g. A logo sketch on my phone, a Pinterest board with 40 pins ...' },
+  ]},
+  { id: 'legal', title: 'Company and legal', intro: 'What exists today. We handle the setup, the trademark and the paperwork with the right licensed partners.', questions: [
+    { key: 'licence_status', type: 'select', req: true, label: 'Do you already have a company or licence for this?', options: ['No, starting from zero', 'A licence is in progress', 'Yes, I already have one'] },
+    { key: 'setup_preference', type: 'select', label: 'Preferred setup', why: 'Mainland gives the widest selling rights across the UAE. Free zones can be cheaper and faster. We recommend based on your channels and visa needs.', options: ['Mainland', 'Free zone', 'I do not know, advise me'] },
+    { key: 'ownership', type: 'select', label: 'Ownership', options: ['Just me, 100%', 'Me with a partner or partners', 'Family investment involved', 'Not decided'] },
+    { key: 'ownership_details', type: 'textarea', label: 'If others are involved: who, and what percentages, if known', ph: 'e.g. My sister 20%, silent ...' },
+    { key: 'visa_needed', type: 'select', label: 'Do you need a residence visa through the new company, for you or anyone else?', options: ['Yes, for me', 'Yes, for me and others', 'No', 'Not sure'] },
+    { key: 'trade_name', type: 'select', label: 'Trade name on the licence', options: ['Jorituel, same as the brand', 'A different holding name', 'Not sure'] },
+    { key: 'trademark_status', type: 'select', label: 'Trademark', options: ['Nothing filed anywhere', 'Filed or registered in the UAE', 'Filed or registered elsewhere', 'Not sure'] },
+    { key: 'trademark_scope', type: 'multi', label: 'Where should the name be protected?', options: ['UAE', 'Saudi Arabia', 'GCC', 'Europe and the UK', 'Worldwide', 'Advise me'] },
+    { key: 'existing_agreements', type: 'textarea', label: 'Any agreements, NDAs, deposits or promises already made with suppliers, designers, agencies or partners?', ph: 'e.g. Paid USD 500 deposit to a supplier for samples, nothing signed ...' },
+    { key: 'bank', type: 'select', label: 'A UAE bank relationship for the company account', options: ['Yes, an existing bank', 'No, I need help', 'Not sure'] },
+  ]},
+  { id: 'money', title: 'Money and timeline', intro: 'Confidential. It shapes every recommendation, from which supplier to which launch plan.', questions: [
+    { key: 'launch_budget', type: 'select', req: true, label: 'Total budget you can commit to reach launch', why: 'Product development, company setup, brand, website, first stock and first marketing, all together.', options: ['Under AED 50k', 'AED 50k to 100k', 'AED 100k to 200k', 'AED 200k to 400k', 'Above AED 400k', 'I need help sizing it'] },
+    { key: 'budget_split', type: 'select', label: 'The split between product, setup, brand, website and marketing', options: ['Propose the split for me', 'I have a split in mind'] },
+    { key: 'budget_split_details', type: 'textarea', label: 'If you have a split in mind, write it here', ph: 'e.g. 40% product and stock, 20% company setup, 20% brand and website, 20% marketing ...' },
+    { key: 'funding_source', type: 'select', label: 'Where does the money come from?', why: 'An outside investor means we also prepare an investor deck and a clean ownership structure.', options: ['Own savings', 'Family', 'A business partner', 'An outside investor', 'A bank loan', 'A mix'] },
+    { key: 'monthly_marketing', type: 'select', label: 'Monthly marketing budget after launch', options: ['Under AED 5k', 'AED 5k to 15k', 'AED 15k to 30k', 'Above AED 30k', 'Advise me'] },
+    { key: 'target_launch_date', type: 'text', label: 'Target launch date, if you have one', ph: 'e.g. March 2027' },
+    { key: 'runway', type: 'select', label: 'How long can the business run before it needs to make money?', options: ['3 months', '6 months', '12 months', '18 months or more', 'Not sure'] },
+  ]},
+  { id: 'together', title: 'Working together', intro: 'How you like to work, so we set the rhythm right from day one.', questions: [
+    { key: 'involvement', type: 'select', req: true, label: 'How involved do you want to be?', options: ['I want to approve everything', 'Approve the key decisions, let you run the rest', 'Mostly hands-off, update me weekly'] },
+    { key: 'decisions_owned', type: 'multi', label: 'Decisions you want to own personally', options: ['Scent selection', 'Product design', 'Logo and visual identity', 'Packaging', 'Pricing', 'Hiring', 'Marketing content', 'Suppliers and manufacturing'] },
+    { key: 'communication', type: 'multi', label: 'How do you like to communicate?', options: ['WhatsApp', 'Email', 'A weekly call', 'In person'] },
+    { key: 'availability', type: 'text', label: 'Best days and times for calls', ph: 'e.g. Weekdays after 6pm, Saturday mornings' },
+    { key: 'other_people', type: 'textarea', label: 'Who else is involved, or will have a say?', ph: 'e.g. My husband on the finances, a friend who is a designer ...' },
+    { key: 'worries', type: 'textarea', label: 'What worries you most about this journey?', ph: 'e.g. Choosing the wrong supplier. Spending on marketing and nothing happens ...' },
+    { key: 'anything_else', type: 'textarea', label: 'Anything we did not ask that we should know?', ph: 'Anything at all ...' },
+  ]},
+  { id: 'links', title: 'Links', intro: 'Paste links, one per line. Files such as sketches, PDFs or photos: send them to info@jorituel.com or on WhatsApp.', questions: [
+    { key: 'link_moodboard', type: 'textarea', label: 'Mood boards, Pinterest, saved Instagram posts', ph: 'https://' },
+    { key: 'link_products', type: 'textarea', label: 'Products or competitors you saved', ph: 'https://' },
+    { key: 'link_suppliers', type: 'textarea', label: 'Supplier pages or quotes', ph: 'https://' },
+    { key: 'link_other', type: 'textarea', label: 'Anything else', ph: 'https://' },
+  ]},
+];
+
+// ── STATE ──
+const $ = (s, el) => (el || document).querySelector(s);
+const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : 'x' + Date.now().toString(36) + Math.random().toString(36).slice(2, 10));
+let state = { id: uuid(), answers: {}, section: 0, submitted: false, updated: null };
+let screen = 'welcome';
+let saveTimer = null;
+
+function load() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (!raw) return false;
+    const s = JSON.parse(raw);
+    if (s && s.id && s.answers) { state = Object.assign(state, s); return true; }
+  } catch (e) {}
+  return false;
+}
+function save(now) {
+  clearTimeout(saveTimer);
+  const doSave = () => {
+    state.updated = new Date().toISOString();
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
+    const t = new Date(state.updated);
+    const hh = String(t.getHours()).padStart(2, '0'), mm = String(t.getMinutes()).padStart(2, '0');
+    $('#savedNote').innerHTML = 'Saved on this device · <b>' + hh + ':' + mm + '</b>';
+  };
+  if (now) doSave(); else saveTimer = setTimeout(doSave, 300);
+}
+function set(key, val) { state.answers[key] = val; save(); }
+function get(key) { return state.answers[key]; }
+function has(q) {
+  const v = get(q.key);
+  if (q.other && (get(q.key + '_other') || '').trim()) return true;
+  if (q.type === 'multi') return Array.isArray(v) && v.length > 0;
+  return typeof v === 'string' && v.trim() !== '';
+}
+
+// ── RENDER ──
+function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+
+function show(name) {
+  screen = name;
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('on'));
+  const el = $('#s-' + name);
+  el.classList.remove('on'); void el.offsetWidth; el.classList.add('on');
+  window.scrollTo({ top: 0, behavior: 'auto' });
+  updateChrome();
+}
+function updateChrome() {
+  const total = SECTIONS.length;
+  let pct = 0, crumb = 'Jorituel · <b>Founder Brief</b>';
+  if (screen === 'section') { pct = (state.section / total) * 100; crumb = '<span class="sn">Section ' + (state.section + 1) + ' of ' + total + ' · </span><b>' + esc(SECTIONS[state.section].title) + '</b>'; }
+  if (screen === 'review') { pct = 97; crumb = 'Review · <b>' + total + ' of ' + total + '</b>'; }
+  if (screen === 'done') { pct = 100; crumb = 'Jorituel · <b>Received</b>'; }
+  $('#bar').style.width = pct + '%';
+  $('#crumb').innerHTML = crumb;
+}
+
+function renderToc() {
+  $('#toc').innerHTML = SECTIONS.map((s, i) => '<li><i>' + String(i + 1).padStart(2, '0') + '</i><span>' + esc(s.title) + '</span></li>').join('');
+}
+
+function renderSection() {
+  const sec = SECTIONS[state.section];
+  $('#secEyebrow').textContent = 'Section ' + (state.section + 1) + ' of ' + SECTIONS.length;
+  $('#secTitle').textContent = sec.title;
+  $('#secIntro').textContent = sec.intro;
+  const wrap = $('#qs');
+  wrap.innerHTML = '';
+  sec.questions.forEach(q => wrap.appendChild(renderQuestion(q)));
+  $('#backBtn').textContent = state.section === 0 ? 'Back to start' : 'Back';
+  $('#nextBtn').textContent = state.section === SECTIONS.length - 1 ? 'Review my answers' : 'Continue';
+  $('#savedNote').innerHTML = state.updated ? 'Saved on this device' : '';
+  show('section');
+}
+
+function renderQuestion(q) {
+  const box = document.createElement('div');
+  box.className = 'q'; box.id = 'q-' + q.key;
+  let html = '<label class="lab" for="f-' + q.key + '">' + esc(q.label) + (q.req ? '<span class="req">required</span>' : '') + '</label>';
+  if (q.why) html += '<p class="why">' + esc(q.why) + '</p>';
+  box.innerHTML = html;
+
+  if (q.type === 'select' || q.type === 'multi') {
+    const pills = document.createElement('div');
+    pills.className = 'pills'; pills.setAttribute('role', q.type === 'multi' ? 'group' : 'radiogroup'); pills.id = 'f-' + q.key;
+    const current = q.type === 'multi' ? (get(q.key) || []) : get(q.key);
+    q.options.forEach(opt => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'pill'; b.textContent = opt;
+      b.setAttribute('role', q.type === 'multi' ? 'checkbox' : 'radio');
+      const on = q.type === 'multi' ? current.includes(opt) : current === opt;
+      b.classList.toggle('on', on); b.setAttribute('aria-checked', on);
+      b.addEventListener('click', () => {
+        if (q.type === 'select') {
+          const val = get(q.key) === opt ? '' : opt;
+          set(q.key, val);
+          pills.querySelectorAll('.pill').forEach(p => { const isOn = p.textContent === val; p.classList.toggle('on', isOn); p.setAttribute('aria-checked', isOn); });
+        } else {
+          let arr = (get(q.key) || []).slice();
+          if (arr.includes(opt)) arr = arr.filter(x => x !== opt);
+          else if (!q.max || arr.length < q.max) arr.push(opt);
+          set(q.key, arr);
+          pills.querySelectorAll('.pill').forEach(p => {
+            const isOn = arr.includes(p.textContent);
+            p.classList.toggle('on', isOn); p.setAttribute('aria-checked', isOn);
+            p.classList.toggle('off', !!q.max && !isOn && arr.length >= q.max);
+          });
+        }
+        box.classList.remove('missing');
+        save(true);
+      });
+      if (q.type === 'multi' && q.max && !on && current.length >= q.max) b.classList.add('off');
+      pills.appendChild(b);
+    });
+    box.appendChild(pills);
+    if (q.type === 'multi' && q.max) { const h = document.createElement('div'); h.className = 'hint'; h.textContent = 'Up to ' + q.max; box.appendChild(h); }
+    if (q.other) {
+      const o = document.createElement('div'); o.className = 'other';
+      const inp = document.createElement('input'); inp.type = 'text'; inp.placeholder = 'Other: tell us'; inp.value = get(q.key + '_other') || '';
+      inp.addEventListener('input', () => set(q.key + '_other', inp.value));
+      o.appendChild(inp); box.appendChild(o);
+    }
+  } else {
+    const inp = document.createElement(q.type === 'textarea' ? 'textarea' : 'input');
+    if (q.type !== 'textarea') { inp.type = q.type; if (q.type === 'email') inp.autocomplete = 'email'; if (q.type === 'tel') inp.autocomplete = 'tel'; if (q.key === 'full_name') inp.autocomplete = 'name'; }
+    inp.id = 'f-' + q.key; inp.placeholder = q.ph || ''; inp.value = get(q.key) || '';
+    inp.addEventListener('input', () => { set(q.key, inp.value); box.classList.remove('missing'); if (q.type === 'textarea') grow(inp); });
+    if (q.type !== 'textarea') inp.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); focusNext(inp); } });
+    box.appendChild(inp);
+    if (q.type === 'textarea') requestAnimationFrame(() => grow(inp));
+  }
+  const err = document.createElement('div'); err.className = 'err'; err.textContent = 'Please answer this one, it shapes everything else.';
+  box.appendChild(err);
+  return box;
+}
+function grow(t) { t.style.height = 'auto'; t.style.height = Math.max(112, t.scrollHeight + 2) + 'px'; }
+function focusNext(el) {
+  const f = [...document.querySelectorAll('#qs input, #qs textarea, #qs .pill')];
+  const i = f.indexOf(el); if (i > -1 && f[i + 1]) f[i + 1].focus();
+}
+
+function validate() {
+  const sec = SECTIONS[state.section];
+  let first = null;
+  sec.questions.forEach(q => {
+    const box = $('#q-' + q.key);
+    let ok = !q.req || has(q);
+    if (ok && q.type === 'email' && has(q)) ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(get(q.key).trim());
+    if (ok && q.type === 'tel' && has(q)) ok = get(q.key).replace(/\D/g, '').length >= 7;
+    box.classList.toggle('missing', !ok);
+    if (!ok && !first) first = box;
+  });
+  if (first) { first.scrollIntoView({ behavior: 'smooth', block: 'center' }); return false; }
+  return true;
+}
+
+function renderReview() {
+  const out = SECTIONS.map((sec, i) => {
+    const rows = sec.questions.map(q => {
+      if (!has(q)) return '';
+      let v = get(q.key);
+      v = Array.isArray(v) ? v.join(' · ') : (v || '');
+      const other = q.other && (get(q.key + '_other') || '').trim();
+      if (other) v += (v ? ' · ' : '') + 'Other: ' + other;
+      return '<dt>' + esc(q.label) + '</dt><dd>' + esc(v) + '</dd>';
+    }).join('');
+    return '<div class="rev"><div class="rev-h"><h3><span class="n">' + String(i + 1).padStart(2, '0') + '</span>' + esc(sec.title) + '</h3><button class="btn link" data-edit="' + i + '">Edit</button></div>' +
+      (rows ? '<dl>' + rows + '</dl>' : '<div class="empty">Skipped for now</div>') + '</div>';
+  }).join('');
+  $('#review').innerHTML = out;
+  $('#review').querySelectorAll('[data-edit]').forEach(b => b.addEventListener('click', () => { state.section = +b.dataset.edit; save(true); renderSection(); }));
+  $('#sendBtn').textContent = state.submitted ? 'Send my updated brief' : 'Send my brief';
+  $('#sendNote').innerHTML = '';
+  show('review');
+}
+
+function payload() {
+  const answers = {}, schema = [];
+  SECTIONS.forEach(sec => sec.questions.forEach(q => {
+    const v = get(q.key);
+    answers[q.key] = Array.isArray(v) ? v : (v || '').trim();
+    schema.push({ section: sec.title, key: q.key, label: q.label });
+    if (q.other) { answers[q.key + '_other'] = (get(q.key + '_other') || '').trim(); schema.push({ section: sec.title, key: q.key + '_other', label: q.label + ' (other)' }); }
+  }));
+  return { form: FORM_ID, version: FORM_VERSION, submission_id: state.id, submitted_at: new Date().toISOString(), user_agent: navigator.userAgent, answers, schema };
+}
+
+async function send() {
+  const btn = $('#sendBtn'), note = $('#sendNote');
+  btn.disabled = true; note.textContent = 'Sending ...';
+  const body = JSON.stringify(payload());
+  let delivered = !ENDPOINT;
+  if (ENDPOINT) {
+    try {
+      // text/plain keeps this a "simple" request: no CORS preflight, so it reaches Apps Script
+      // even when the browser refuses to show us the response.
+      const r = await fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body });
+      const j = await r.json().catch(() => ({}));
+      delivered = r.ok && j.ok !== false;
+      if (!delivered) throw new Error(j.error || ('HTTP ' + r.status));
+    } catch (err) {
+      // TypeError = the request left but the response was opaque (CORS). Apps Script still got it.
+      // Unless the device is offline, in which case nothing left at all.
+      delivered = err instanceof TypeError && navigator.onLine !== false;
+      if (!delivered) { note.textContent = 'Something went wrong. Please try again, your answers are still saved here.'; btn.disabled = false; return; }
+    }
+  }
+  state.submitted = true; save(true);
+  const name = (get('preferred_name') || get('full_name') || 'Joanna').trim().split(' ')[0];
+  $('#doneTitle').textContent = 'Thank you, ' + name + '.';
+  $('#doneCopy').textContent = ENDPOINT ? 'A copy of your answers is on its way to ' + (get('email') || 'your email') + '.' : 'Test mode: the form is not connected, nothing was sent.';
+  btn.disabled = false;
+  show('done');
+}
+
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('on'); setTimeout(() => t.classList.remove('on'), 3200); }
+
+// ── WIRING ──
+renderToc();
+const restored = load();
+if (!ENDPOINT) $('#notConnected').classList.add('on');
+$('#startBtn').textContent = restored && Object.keys(state.answers).length ? 'Continue where I left off' : 'Start the brief';
+$('#startBtn').addEventListener('click', () => { if (state.submitted) renderReview(); else renderSection(); });
+$('#backBtn').addEventListener('click', () => { if (state.section === 0) show('welcome'); else { state.section--; save(true); renderSection(); } });
+$('#nextBtn').addEventListener('click', () => {
+  if (!validate()) return;
+  if (state.section === SECTIONS.length - 1) { renderReview(); return; }
+  state.section++; save(true); renderSection();
+});
+$('#reviewBack').addEventListener('click', () => { state.section = SECTIONS.length - 1; renderSection(); });
+$('#sendBtn').addEventListener('click', send);
+$('#editBtn').addEventListener('click', renderReview);
+$('#resetBtn').addEventListener('click', () => {
+  if (!confirm('Start over? This clears every answer saved on this device.')) return;
+  try { localStorage.removeItem(STORE_KEY); } catch (e) {}
+  state = { id: uuid(), answers: {}, section: 0, submitted: false, updated: null };
+  $('#startBtn').textContent = 'Start the brief';
+  show('welcome');
+});
+if (restored && Object.keys(state.answers).length) toast(state.submitted ? 'Welcome back. Your brief was already sent, you can still update it.' : 'Welcome back. Your answers are restored.');
+</script>
+</body>
+</html>
