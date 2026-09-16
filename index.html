@@ -153,7 +153,7 @@ footer .dots i+i{background:var(--muted)}
     <div class="eyebrow">Founder Brief · Private</div>
     <h1>Joanna, this is where<br><em>Jorituel</em> begins.</h1>
     <p class="lead">Before we choose suppliers, design a box or file a single form, we want to understand what you see. This brief is that conversation, in writing.</p>
-    <p class="lead">Answer in your own words. If you do not know something yet, skip it. That is completely normal at this stage, and nothing here is a commitment.</p>
+    <p class="lead">Answer in your own words. If you do not know something yet, skip it. That is completely normal at this stage, and you only commit to what you answer.</p>
     <div class="facts">
       <div class="fact"><div class="n">~35</div><div class="t">minutes, give or take. Most questions are a tap.</div></div>
       <div class="fact"><div class="n">auto</div><div class="t">saved on this device. Close the tab, come back later.</div></div>
@@ -229,7 +229,6 @@ const STORE_KEY = 'jorituel_intake_v1';
 const SECTIONS = [
   { id: 'about', title: 'About you', intro: 'The basics, plus the one answer that matters most: why this business.', questions: [
     { key: 'full_name', type: 'text', req: true, label: 'Your full name, exactly as it appears on your passport', why: 'This is the name that goes on the trade licence and the trademark, so the spelling matters.', ph: 'Joanna ...' },
-    { key: 'preferred_name', type: 'text', label: 'What should we call you?', ph: 'Joanna' },
     { key: 'email', type: 'email', req: true, label: 'Best email for this project', ph: 'joanna@jorituel.com' },
     { key: 'phone', type: 'tel', req: true, label: 'WhatsApp number', ph: '+971 5x xxx xxxx' },
     { key: 'nationality', type: 'text', req: true, label: 'Nationality', ph: 'e.g. Lebanese' },
@@ -324,7 +323,7 @@ const SECTIONS = [
     { key: 'budget_split', type: 'select', label: 'The split between product, setup, brand, website and marketing', options: ['Propose the split for me', 'I have a split in mind'] },
     { key: 'budget_split_details', type: 'textarea', label: 'If you have a split in mind, write it here', ph: 'e.g. 40% product and stock, 20% company setup, 20% brand and website, 20% marketing ...' },
     { key: 'funding_source', type: 'select', label: 'Where does the money come from?', why: 'An outside investor means we also prepare an investor deck and a clean ownership structure.', options: ['Own savings', 'Family', 'A business partner', 'An outside investor', 'A bank loan', 'A mix'] },
-    { key: 'monthly_marketing', type: 'select', label: 'Monthly marketing budget after launch', options: ['Under AED 5k', 'AED 5k to 15k', 'AED 15k to 30k', 'Above AED 30k', 'Advise me'] },
+    { key: 'monthly_marketing', type: 'select', label: 'Monthly marketing budget after launch (net marketing cost, excluding nuhai fees)', options: ['AED 5k to 15k', 'AED 15k to 30k', 'Above AED 30k', 'Advise me'] },
     { key: 'target_launch_date', type: 'text', label: 'Target launch date, if you have one', ph: 'e.g. March 2027' },
     { key: 'runway', type: 'select', label: 'How long can the business run before it needs to make money?', options: ['3 months', '6 months', '12 months', '18 months or more', 'Not sure'] },
   ]},
