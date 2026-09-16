@@ -133,6 +133,27 @@ footer{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 20px 
 footer .dots{display:inline-flex;gap:5px;margin-right:10px;vertical-align:middle}
 footer .dots i{width:6px;height:6px;border-radius:50%;background:var(--teal);display:block}
 footer .dots i+i{background:var(--muted)}
+/* print / save as PDF */
+#printDoc{display:none}
+@media print{
+  @page{margin:16mm 14mm}
+  html,body{background:#fff!important;color:#1a1a1a!important;padding:0!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body::before,body::after{display:none!important}
+  body > *:not(#printDoc){display:none!important}
+  #printDoc{display:block!important;font-family:Helvetica,Arial,sans-serif;font-size:11pt;color:#1a1a1a}
+  #printDoc .ph{border-bottom:2px solid #4bc8cd;padding:0 0 14px;margin:0 0 6px}
+  #printDoc .ph img{height:22px;display:block}
+  #printDoc .ph .lg{display:inline-block;background:#0a0a0c;padding:9px 12px;border-radius:6px;margin-bottom:14px}
+  #printDoc .ph .t{font-size:22pt;font-weight:700;margin:0 0 4px}
+  #printDoc .ph .s{color:#2a8f94;font-size:10pt}
+  #printDoc .ph .m{color:#6b6b68;font-size:9pt;margin-top:6px}
+  #printDoc h2{font-size:14pt;color:#0a0a0c;border-left:3px solid #4bc8cd;padding-left:10px;margin:24px 0 10px;page-break-after:avoid}
+  #printDoc .q{margin:0 0 12px;page-break-inside:avoid}
+  #printDoc .l{font-size:8.5pt;color:#6b6b68;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+  #printDoc .a{font-size:11pt;white-space:pre-wrap}
+  #printDoc .a.none{color:#a8a8a4;font-style:italic}
+  #printDoc .pf{margin-top:28px;padding-top:10px;border-top:1px solid #ddd;color:#8a8a8a;font-size:8.5pt}
+}
 </style>
 </head>
 <body>
@@ -202,7 +223,9 @@ footer .dots i+i{background:var(--muted)}
     <p class="intro-note" id="doneCopy"></p>
     <div class="nav">
       <button class="btn link" id="editBtn">Change something in my answers</button>
+      <button class="btn primary" id="pdfBtn">Save as PDF</button>
     </div>
+    <p class="intro-note" style="margin-top:10px">Save as PDF opens your phone or computer print screen. Choose "Save as PDF" there to keep your own copy.</p>
   </section>
 
 </main>
@@ -212,6 +235,7 @@ footer .dots i+i{background:var(--muted)}
   <button class="btn link mono" id="resetBtn" style="font-size:11px;letter-spacing:.08em;text-transform:uppercase">Start over</button>
 </footer>
 <div class="toast" id="toast"></div>
+<div id="printDoc"></div>
 
 <script>
 // ── CONFIG ──
@@ -584,6 +608,29 @@ $('#resetBtn').addEventListener('click', () => {
   show('welcome');
 });
 if (restored && Object.keys(state.answers).length) toast(state.submitted ? 'Welcome back. Your brief was already sent, you can still update it.' : 'Welcome back. Your answers are restored.');
+function printDoc() {
+  const p = payload();
+  const name = (get('full_name') || 'Joanna').trim();
+  let answered = 0, total = 0;
+  p.schema.forEach(sc => { if (/_other$/.test(sc.key)) return; total++; if (cellText(p.answers[sc.key])) answered++; });
+  let h = '<div class="ph"><div class="lg"><img src="img/nuhai-logo.png" alt="nuhai"></div><div class="t">Jorituel · Founder Brief</div>' +
+    '<div class="s">' + esc(name) + (get('email') ? ' · ' + esc(get('email')) : '') + '</div>' +
+    '<div class="m">' + (state.submitted ? 'Submitted' : 'Draft') + ' ' + new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) + ' · ' + answered + ' of ' + total + ' questions answered</div></div>';
+  let current = '';
+  p.schema.forEach(sc => {
+    const txt = cellText(p.answers[sc.key]);
+    if (/_other$/.test(sc.key) && !txt) return;
+    if (sc.section !== current) { current = sc.section; h += '<h2>' + esc(current) + '</h2>'; }
+    h += '<div class="q"><div class="l">' + esc(sc.label) + '</div>' + (txt ? '<div class="a">' + esc(txt) + '</div>' : '<div class="a none">Not answered</div>') + '</div>';
+  });
+  h += '<div class="pf">nuhai.net · Confidential · Jorituel founder brief · you can update your answers any time from the same link on this device</div>';
+  return h;
+}
+function cellText(v) { return Array.isArray(v) ? v.join(' · ') : String(v || '').trim(); }
+$('#pdfBtn').addEventListener('click', () => {
+  $('#printDoc').innerHTML = printDoc();
+  setTimeout(() => window.print(), 60);
+});
 </script>
 </body>
 </html>
