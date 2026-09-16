@@ -569,9 +569,9 @@ async function send() {
       delivered = r.ok && j.ok !== false;
       if (!delivered) throw new Error(j.error || ('HTTP ' + r.status));
     } catch (err) {
-      // TypeError = the request left but the response was opaque (CORS). Apps Script still got it.
-      // Unless the device is offline, in which case nothing left at all.
-      delivered = err instanceof TypeError && navigator.onLine !== false;
+      // Verified 2026-09-16: the Apps Script reply is readable cross-origin, so any error here
+      // means the answers did not arrive. Keep them saved on the device and let her retry.
+      delivered = false;
       if (!delivered) { note.textContent = 'Something went wrong. Please try again, your answers are still saved here.'; btn.disabled = false; return; }
     }
   }
